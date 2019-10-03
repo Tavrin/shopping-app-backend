@@ -9,7 +9,7 @@
   "authentication": {
     "entity": "user",
     "service": "users",
-    "secret": "NZC9qh2kozFj8bXDvB99Kj4Fl/Q=",
+    "secret": "AUTH_SECRET",
     "authStrategies": [
       "jwt",
       "local"
@@ -53,5 +53,5 @@
       }
     }
   },
-  "mongodb": "mongodb://heroku_wl79sb58:9gug80mji024uirduj9p6e6vgv@ds111765.mlab.com:11765/heroku_wl79sb58"
+  "mongodb": "MONGODB"
 }

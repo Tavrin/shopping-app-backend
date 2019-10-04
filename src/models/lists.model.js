@@ -1,12 +1,13 @@
-// products-model.js - A mongoose model
+// lists-model.js - A mongoose model
 // 
 // See http://mongoosejs.com/docs/models.html
 // for more of what you can do here.
 module.exports = function (app) {
   const mongooseClient = app.get('mongooseClient');
   const { Schema } = mongooseClient;
-  const products = new Schema({
-    name: { type: String, required: true }
+  const lists = new Schema({
+    name: { type: String, required: true },
+    products: { type: Schema.Types.ObjectId, ref: 'products' }
   }, {
     timestamps: true
   });
@@ -14,8 +15,8 @@ module.exports = function (app) {
   // This is necessary to avoid model compilation errors in watch mode
   // see https://github.com/Automattic/mongoose/issues/1251
   try {
-    return mongooseClient.model('products');
+    return mongooseClient.model('lists');
   } catch (e) {
-    return mongooseClient.model('products', products);
+    return mongooseClient.model('lists', lists);
   }
 };
